@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block customJavascript %}{% endblock %}
+{% block body %}
+    <body id="sunday-body">
+    <div id="background"></div>
+    {% block sundayHead %}
+        <div class="ui fixed inverted main menu">
+            <div class="container">
+                <a id="menu-title" class="title item">
+                    <img class="ui" src="{{ asset('img/icon/menu-title.png') }} " border="0" alt="Sunday" width="90" height="35">
+                </a>
+
+                {# {% block menuContent %}
+                    {{ topMenu()|raw }}
+                {% endblock menuContent %} #}
+                <a class="item active">Features</a>
+                <a class="item">Testimonials</a>
+                <a class="item">Sign-in</a>
+
+                <div class="right menu">
+                    <div class="item">
+                        <div class="ui icon input">
+                            <input type="text" placeholder="Search..." id="search">
+                            <i class="search link icon"></i>
+                        </div>
+                    </div>
+                    <a class="item">
+                        <i class="user icon"></i> Tony Gao
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    {% endblock %}
+
+    {{ block('wsSundayContent') }}
+
+    {% block sundayfoot %}
+
+    {% endblock %}
+    </body>
+{% endblock %}
+
+{% block rightLayout %}
+    <div class="right ui rail home robot">
+        <div class="ui sticky">
+            <div class="ui yellow message" id="right_message">
+                <a class="ui right ribbon red label">第一个</a>
+                <p>用户xxx向你发起了巫毒攻击，你正处在巫毒状态。你的发帖和回帖操作因此受到影响而延迟。</p>
+                <a class="ui right ribbon teal label">天气预报</a>
+                <p>天津滨海新区：晴，24-31℃</p>
+                <a class="ui right ribbon green label">周杰伦是谁</a>
+                <p>答案找到了<button class="ui yellow button">点击阅读</button></p>
+                <a class="ui right ribbon red label">警告</a>
+                <p>用户xxx向你发起了巫毒攻击，你正处在巫毒状态。你的发帖和回帖操作因此受到影响而延迟。</p>
+            </div>
+            {# {% block igorBody %}
+                {{ parent() }}
+            {% endblock %} #}
+            {# {% block igorCommandInput %}
+                {{ parent() }}
+            {% endblock %} #}
+        </div>
+    </div>
+{% endblock %}

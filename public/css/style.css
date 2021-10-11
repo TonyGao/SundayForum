@@ -1,0 +1,418 @@
+@importGoogleFonts: false;
+/* front page */
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/background/background-01.jpg') no-repeat center center fixed grey;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    filter: grayscale(1);
+}
+
+#command-input {
+    border-bottom: white;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    top: 20px;
+}
+
+#command-input input {
+    font-size: 1.5em;
+    color: white;
+    width: 20em;
+    height: 1.6em;
+}
+
+.igor-command-input {
+    margin-left: 10px;
+}
+
+#igor-command-input {
+    border-bottom: black;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    top: 5px;
+    font-size: 1.2em;
+}
+
+.igor-command-input-text {
+    width: 14em;
+}
+
+#forum-title {
+    font-size: 1.5em;
+}
+
+#sunday-body .container {
+    width: 1000px;
+    margin: 0px auto;
+}
+
+#menu-title {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+#sunday-body .vertical.segment {
+    position: relative;
+    margin: 0em auto;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    width: 1000px;
+    border-bottom: none;
+}
+
+#sunday-body .four.wide.column {
+    padding-top: 30px;
+}
+
+#sunday-body .post.title {
+    display: inline;
+    font-size: 1.2em;
+    color: #3b83c0;
+}
+
+#sunday-body .post.category {
+    display: inline;
+    float: right;
+    padding-right: 2em;
+}
+
+#sunday-body .post.content {
+    display: table;
+    width: 100%;
+    padding-top: 0.5em;
+    margin-bottom: 20px;
+}
+
+#sunday-body .post.content.comment {
+    margin-bottom: 0px;
+}
+
+#sunday-body .post.content.comment .comment.ui.segment {
+    margin-top: 0px;
+}
+
+#sunday-body .post.content.comment {
+    padding-bottom: 2em;
+}
+
+#sunday-body .avatar {
+    display: table-cell;
+    width: 80px;
+    vertical-align: top;
+}
+
+#sunday-body .post.content .text {
+    display: table-cell;
+    padding-left: 2em;
+    padding-top: 1em;
+    width: auto;
+    vertical-align: top;
+    word-wrap: break-word;
+    color: #555;
+}
+
+#sunday-body .post.content .comment.ui.segment {
+    margin-left: 28px;
+    margin-bottom: 10px;
+}
+
+#sunday-body .post.content.comment .message {
+    margin-left: 28px;
+    margin-bottom: 10px;
+}
+
+#sunday-body .post.comment.corner {
+    margin-top: 30px;
+}
+
+#sunday-body .post.comment.corner a {
+    padding-left: 1.5em;
+    font-size: 1.2em;
+}
+
+#sunday-body .post.comment.corner .hide {
+    padding-left: 0;
+    font-size: 1.2em;
+}
+
+#sunday-body .post.comment.corner .hide i {
+    margin-right: 5px;
+}
+
+#sunday-body .avatar .ui.image {
+    margin-top: 10px;
+    padding-bottom: 4px;
+}
+
+#sunday-body .avatar.ui.dead {
+    top: 4px;
+}
+
+#sunday-body .status.bar {
+    margin-bottom: 60px;
+}
+
+#sunday-body .status.bar .ui.left.floated.segment {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+#sunday-body .status.bar .ui.right.floated.segment {
+    margin-top: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+#sunday-body .four.wide.column .ui.yellow.message {
+    padding-right: 15px;
+}
+
+#sunday-body .comment.right.bottom {
+    margin-top: 10px;
+    float: right;
+}
+
+#sunday-body .ui.icon.buttons.pagination {
+    margin: 20px 0 20px 180px;
+}
+
+/* userHome */
+
+#card-buttons {
+    margin-top: 10px;
+}
+
+.health-inline-box {
+    display: table;
+    padding: 5px 0;
+}
+
+.health-inline-box .display-title {
+    display: table-cell;
+}
+
+.health-inline-box .display-content {
+    display: table-cell;
+    padding-left: 10px;
+}
+
+.health-inline-box .icon-label-cell {
+    display: table-cell;
+    padding-right: 10px;
+}
+
+.health-inline-box .progress {
+    display: table-cell;
+    left: 10px;
+    width: 355px;
+}
+
+#health-attribute .ui.segment {
+    padding: 5px 14px;
+}
+
+#health-attribute .ui.segment.health.value {
+    padding-bottom: 14px;
+}
+
+.list-block {
+    margin-top: 10px;
+}
+
+.ui.blue.circular.label.light{
+    background-color: rgba(59, 131, 192, 0.6) !important;
+}
+
+.ui.top.attached.label.post.comment.list {
+    padding: 5px 12px;
+}
+
+.post.comment.list .inline.dropdown {
+    float: right;
+    padding-top: 3px;
+}
+
+.post.comment.inline.box {
+    display: table;
+}
+
+.post.comment.inline.box .left.cell {
+    display: table-cell;
+    width: 1000px;
+    vertical-align: middle;
+}
+
+.post.comment.inline.box .right.cell {
+    display: table-cell;
+    text-align: -webkit-right;
+    vertical-align: middle;
+    width: 7em;
+}
+
+.post.comment.inline.box .title {
+    font-size: 1.2em;
+    color: #3b83c0;
+}
+
+.post.comment.meta.inline.box {
+    display: table;
+    margin-top: 5px;
+}
+
+.post.comment.meta.inline.box a {
+    margin-right: 15px;
+}
+
+.post.comment.meta.inline.box .meta.cell {
+    display: table-cell;
+    padding-right: 15px;
+}
+
+/* login form */
+
+.ui.form.home {
+    width: 605px;
+    float: right;
+    margin-right: 0px;
+    padding-bottom: 40px;
+}
+
+.inline.field.post.comment {
+    margin-top: 10px;
+    float: right;
+}
+
+.ui.large.form.segment.column.login {
+    width: 22em;
+}
+
+#login-form {
+    padding-top: 10%;
+}
+
+#login-button {
+    width: 7em;
+}
+
+.right.ui.rail.home.robot {
+    left: 740px;
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.login-robot-container {
+    position: fixed;
+    margin-top: 8em;
+    margin-left: 2em;
+    opacity: 1;
+    z-index: 999;
+}
+
+.login-robot-body {
+    position:relative;
+    top: 0px;
+    left: 0px;
+    width: 80px;
+    height: 128px;
+    background: url("../img/robot/igor_gsap.png") no-repeat;
+    background-position: 0px 0px;
+}
+
+#xmas_cap {
+    width: 90px;
+    position: absolute;
+    margin-left: -30px;
+    margin-top: -3px;
+}
+
+#login-robot-bubble {
+    position: relative;
+    left: 80px;
+    text-align: left;
+    padding: 3px 5px;
+    width: 15em;
+}
+
+.bubble-container {
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+.bubble-container .img-bubble-triangle {
+    float: left;
+    position: absolute;
+    left: 80px;
+    top: 25px;
+}
+
+#sunday-body .home-robot-container {
+    margin-bottom: 1em;
+}
+
+#right_message button {
+    margin-left: 1em;
+}
+
+#sunday-body .home-robot-body {
+    width: 76.33px;
+    height: 128px;
+    background: url("img/robot/igor_gsap.png") no-repeat;
+}
+
+/* register form */
+
+#register-form {
+    padding-top: 10%;
+}
+
+#register-form .login-robot-container {
+    margin-left: 180px;
+    margin-top: 20px;
+}
+
+.ui.right.ribbon.label {
+    margin-left: 5px;
+}
+
+#pantheon-user-info {
+    width: 770px;
+}
+
+#registration-avatar-modal-content {
+    height: 440px;
+}
+
+.avatar-preview {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.avatar-preview.preview-lg {
+    width: 250px;
+    height: 250px;
+}
+
+.avatar-preview.preview-sm {
+    width: 80px;
+    height: 80px;
+}
+
+.register-robot-container {
+    margin-top: 15em;
+}
+
+/* end register form */
+
+/* register form avatar modal */
+
+

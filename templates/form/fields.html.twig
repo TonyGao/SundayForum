@@ -1,0 +1,36 @@
+{%- block choice_widget_collapsed -%}
+    <div class="ui animation selection dropdown" tabindex="0" id="div_{{ id }}">
+        {%- if required and placeholder is none and not placeholder_in_choices and not multiple -%}
+            {% set required = false %}
+        {%- endif -%}
+        <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+            {%- if placeholder is not none -%}
+                <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder|trans({}, translation_domain) }}</option>
+            {%- endif -%}
+            {%- if preferred_choices|length > 0 -%}
+                {% set options = preferred_choices %}
+                {{- block('choice_widget_options') -}}
+                {%- if choices|length > 0 and separator is not none -%}
+                    <option disabled="disabled">{{ separator }}</option>
+                {%- endif -%}
+            {%- endif -%}
+            {%- set options = choices -%}
+            {{- block('choice_widget_options') -}}
+        </select>
+        <i class="dropdown icon"></i>
+        <div class="default text">Choose one</div>
+        {{- block('ws_choice_widget_div_options') }}
+    </div>
+{%- endblock choice_widget_collapsed -%}
+
+{% block ws_choice_widget_div_options %}
+    <div class="menu transition hidden" tabindex="-1">
+        {% for group_label, choice in options %}
+            {%- if choice is iterable -%}
+                <optgroup label="{{ group_label }}"></optgroup>
+            {%- else -%}
+                <div class="item" data-value="{{ choice.value }}">{{ choice.label }}</div>
+            {%- endif -%}
+        {% endfor %}
+    </div>
+{% endblock ws_choice_widget_div_options %}

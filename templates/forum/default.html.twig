@@ -1,0 +1,258 @@
+{% extends "forum/layout.html.twig" %}
+
+{% block wsSundayContent %}
+    <div class="ui vertical segment">
+        <div class="ui grid">
+            <div class="row">
+                <div id="igorhome" class="twelve wide column">
+                    <div class="status bar">
+                        <div class="ui basic left floated segment">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" name="public" checked="checked">
+                                <label>系统推荐</label>
+                            </div>
+                        </div>
+                        <div class="ui basic right floated segment">
+                            <i class="large warning sign icon"></i>
+                            <a class="ui red circular label">巫毒状态，你受到攻击</a>
+                            <a class="ui label">
+                                <i class="mail icon"></i> 23
+                            </a>
+                        </div>
+                    </div>
+
+                    {# {% for post in pagination %}
+                        <div style="min-height: 8rem;" class="ui segment">
+                            <a class="ui {{ post.author.businessUnit.color }} ribbon label">{{ post.author.username }}</a>
+                            {% if(app.user) %}
+                                {% if(post.likeItUser.contains(app.user)) %}
+                                    <a class="ui red corner label">
+                                        <i class="white heart icon"></i>
+                                    </a>
+                                {% else %}
+                                    <a class="ui corner label">
+                                        <i class="heart icon"></i>
+                                    </a>
+                                {% endif %}
+                            {% endif %}
+                            <div class="post title">{{ post.subject }}</div>
+                            <div class="post category"><a class="ui grey tag small label">{{ post.category.categoryName }}</a></div>
+                            <div class="post content">
+                                <div class="avatar">
+                                    {# <img class="ui rounded tiny image" src="{{ asset(post.author.avatar.path)|imagine_filter('avatar_thumb') }} ">
+                                    <img class="ui rounded tiny image" src="{{ asset('img/icon/avatar-80.png') }} ">
+                                    {% set healthPercent = (post.author.healthValue / post.author.serviceGrade.initialValue) * 100 %}
+                                    {% set userStatus = post.author.currentStatus %}
+                                    {% if healthPercent >= 60 and userStatus != 'possessed' %}
+                                        <div class="avatar ui green tiny progress" data-percent="{{ healthPercent > 100 ? 100 : healthPercent }}">
+                                            <div class="bar"></div>
+                                        </div>
+                                    {% elseif healthPercent < 60 and healthPercent >= 10 and userStatus != 'possessed' %}
+                                        <div class="avatar ui yellow tiny progress" data-percent="{{ healthPercent }}">
+                                            <div class="bar"></div>
+                                        </div>
+                                    {% elseif healthPercent < 10 and healthPercent > 0 and userStatus != 'possessed' %}
+                                        <div class="avatar ui red tiny progress" data-percent="{{ healthPercent }}">
+                                            <div class="bar"></div>
+                                        </div>
+                                    {% elseif userStatus == 'possessed' and healthPercent != 0 %}
+                                        <div class="avatar ui black tiny progress" data-percent="{{ healthPercent }}">
+                                            <div class="bar"></div>
+                                        </div>
+                                    {% elseif healthPercent == 0 %}
+                                        <div class="avatar ui label dead">
+                                            <i class="heartbeat icon"></i> Dead
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="post text">{{ post.content }}</div>
+                            </div>
+                            <div class="post comment corner">
+                                <div class="ui bottom right attached label">
+                                    <i class="comments icon"></i>{{ post.comments.count }}
+                                    <a href="">显示全部</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %} #}
+
+                    <div style="min-height: 8rem;" class="ui segment">
+                        <a class="ui blue ribbon label">Tony</a>
+                        <a class="ui red corner label">
+                            <i class="heart icon"></i>
+                        </a>
+                        <div class="post title">请问想学习PHP，是先从C++入门还是先学C#</div>
+                        <div class="post category"><a class="ui purple tag small label">蠢问题</a></div>
+                        <div class="post content">
+                            <div class="avatar">
+                                <img class="ui rounded tiny image" src="{{ asset('img/icon/avatar-80.png') }} ">
+                                <div class="avatar ui green tiny progress" data-percent="90">
+                                    <div class="bar"></div>
+                                </div>
+                            </div>
+                            <div class="post text">第一次在AppStore上购买付费应用，通过银联绑定的是邮政储蓄卡，购买app后未收到任何付费提醒，而且最主要的是
+                                我银行卡没有钱啊！然后直接下了app，心里不放心又打了邮政的客服，他们告知我卡里今天也没有交易记录？这是什么
+                                情况？bug？还是appstore扣费机制与国内常规不同？求解！</div>
+                        </div>
+                        <div class="post comment corner">
+                            <div class="ui bottom right attached label">
+                                <i class="comments icon"></i>21
+                                <a href="">显示全部</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="min-height: 8rem;" class="ui clearing segment">
+                        <a class="ui blue ribbon label">L</a>
+                        <a class="ui red corner label">
+                            <i class="heart icon"></i>
+                        </a>
+                        <div class="post title">请问想学习PHP，是先从C++入门还是先学C#</div>
+                        <div class="post category"><a class="ui purple tag small label">蠢问题</a></div>
+                        <div class="post content">
+                            <div class="avatar">
+                                <img class="ui rounded tiny image" src="{{ asset('img/icon/avatar-80.png') }} ">
+                                <div class="avatar ui red tiny progress" data-percent="10">
+                                    <div class="bar"></div>
+                                </div>
+                            </div>
+                            <div class="post text">
+                                <div class="post content">
+                                    第一次在AppStore上购买付费应用，通过银联绑定的是邮政储蓄卡，购买app后未收到任何付费提醒，而且最主要的是
+                                    我银行卡没有钱啊！然后直接下了app，心里不放心又打了邮政的客服，他们告知我卡里今天也没有交易记录？这是什么
+                                    情况？bug？还是appstore扣费机制与国内常规不同？求解！
+                                </div>
+
+                                <div class="ui yellow message">
+                                    <div class="ui top left attached yellow label">附言1</div>
+                                    <div class="postscript content">
+                                        这是一个附言，用于解释上边发帖内容。
+                                        这是一个附言，用于解释上边发帖内容。这是一个附言，用于解释上边发帖内容。这是一个附言，用于解释上边发帖内容。
+                                    </div>
+                                </div>
+
+                                <div class="ui yellow message">
+                                    <div class="ui top left attached yellow label">附言2</div>
+                                    <div class="postscript content">
+                                        这是一个附言，用于解释上边发帖内容。
+                                        这是一个附言，用于解释上边发帖内容。这是一个附言，用于解释上边发帖内容。这是一个附言，用于解释上边发帖内容。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                        <a class="ui green ribbon label">那美克星绿</a>
+                        <div class="post content comment">
+                            <div class="avatar">
+                                <img class="ui rounded tiny image" src="{{ asset('img/icon/avatar-80.png') }} ">
+                                <div class="avatar ui red tiny progress" data-percent="10">
+                                    <div class="bar"></div>
+                                </div>
+                            </div>
+                            <div class="comment ui green clearing segment">
+                                <p>第一次在AppStore上购买付费应用，通过银联绑定的是邮政储蓄卡，购买app后未收到任何付费提醒，而且最主要的是
+                                    我银行卡没有钱啊！然后直接下了app，心里不放心又打了邮政的客服，他们告知我卡里今天也没有交易记录？这是什么
+                                    情况？bug？还是appstore扣费机制与国内常规不同？求解！还是appstore扣费机制与国内常规不同？求解！</p>
+                                <p>哎呀妈呀，我第一回帖啊，有点紧张啊，都不知道说什么好了，就把这种重复循坏播放吧。哎呀妈呀，我第一回帖啊，
+                                    有点紧张啊，都不知道说什么好了，就把这种重复循坏播放吧。哎呀妈呀，我第一回帖啊，有点紧张啊，都不知道说什么好了，
+                                    就把这种重复循坏播放吧。哎呀妈呀，我第一回帖啊，有点紧张啊，都不知道说什么好了，就把这种重复循坏播放吧。
+                                    哎呀妈呀，我第一回帖啊，有点紧张啊，都不知道说什么好了，就把这种重复循坏播放吧。
+                                    哎呀妈呀，我第一回帖啊，有点紧张啊，都不知道说什么好了，就把这种重复循坏播放吧。
+                                    哎呀妈呀，我第一回帖啊，有点紧张啊，都不知道说什么好了，就把这种重复循坏播放吧。
+                                </p>
+                                <div class="comment right bottom">
+                                    <i class="large thumbs up icon"></i>16
+                                    <i class="large thumbs outline down icon"></i>0
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="ui purple ribbon label">人造人紫</a>
+                        <div class="post content comment">
+                            <div class="avatar">
+                                <img class="ui rounded tiny image" src="{{ asset('img/icon/avatar-80.png') }} ">
+                                <div class="avatar ui red tiny progress" data-percent="10">
+                                    <div class="bar"></div>
+                                </div>
+                            </div>
+                            <div class="comment ui purple clearing segment">
+                                第一次在AppStore上购买付费应用，通过银联绑定的是邮政储蓄卡，购买app后未收到任何付费提醒，而且最主要的是
+                                我银行卡没有钱啊！然后直接下了app，心里不放心又打了邮政的客服，他们告知我卡里今天也没有交易记录？这是什么
+                                情况？bug？还是appstore扣费机制与国内常规不同？求解！还是appstore扣费机制与国内常规不同？求解！
+                                <div class="comment right bottom">
+                                    <i class="large thumbs up icon"></i>16
+                                    <i class="large thumbs outline down icon"></i>0
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="ui black ribbon label">神黑</a>
+                        <div class="post content comment">
+                            <div class="avatar">
+                                <img class="ui rounded tiny image" src="{{ asset('img/icon/avatar-80.png') }} ">
+                                <div class="avatar ui red tiny progress" data-percent="10">
+                                    <div class="bar"></div>
+                                </div>
+                            </div>
+                            <div class="comment ui black clearing segment">
+                                第一次在AppStore上购买付费应用，通过银联绑定的是邮政储蓄卡，购买app后未收到任何付费提醒，而且最主要的是
+                                我银行卡没有钱啊！然后直接下了app，心里不放心又打了邮政的客服，他们告知我卡里今天也没有交易记录？这是什么
+                                情况？bug？还是appstore扣费机制与国内常规不同？求解！还是appstore扣费机制与国内常规不同？求解！
+                                <div class="comment right bottom">
+                                    <i class="large thumbs up icon"></i>16
+                                    <i class="large thumbs outline down icon"></i>0
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ui icon buttons pagination">
+                            <button class="ui button"><i class="angle double left icon"></i>上一页</button>
+                            <button class="ui active button">1</button>
+                            <button class="ui button">2</button>
+                            <button class="ui button">3</button>
+                            <button class="ui button">4</button>
+                            <button class="ui button">5</button>
+                            <button class="ui button">6</button>
+                            <button class="ui button">下一页<i class="angle double right icon"></i></button>
+                        </div>
+
+                        <div class="ui divider"></div>
+
+                        <div class="ui right floated form home">
+                            <div class="field">
+                                <label>添加你的回复</label>
+                                <textarea></textarea>
+                                <div class="inline field post comment">
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" tabindex="0" class="hidden">
+                                        <label>匿名</label>
+                                    </div>
+                                    <div class="ui submit blue button">
+                                        <i class="forward mail icon"></i>
+                                        回复
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post comment corner">
+                            <div class="ui bottom right attached label">
+                                <a class="hide" href=""><i class="large sort descending icon"></i>收起</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="display more">
+                        <button class="fluid ui button">
+                            <i class="angle double down icon"></i>
+                            显示更多
+                        </button>
+                    </div>
+
+                    {% block rightLayout %}
+                        {{ parent() }}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock wsSundayContent %}

@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Semantic UI Sliding pagination control implementation which modified base on Twitter Bootstrap v3 version.
+ *
+ * View that can be used with the pagination module
+ * from the Semantic UI
+ *
+ * Original version author, thank you all people.
+ * @author Pablo Díez <pablodip@gmail.com>
+ * @author Jan Sorgalla <jsorgalla@gmail.com>
+ * @author Artem Ponomarenko <imenem@inbox.ru>
+ * @author Artem Zabelin <artjomzabelin@gmail.com>
+ *
+ * Current version author
+ * @author Tony Gao <86developer@gmail.com>
+ */
+#}
+
+{% if pageCount > 1 %}
+    <div class="ui icon buttons pagination">
+
+    {% if previous is defined %}
+        <a  class="ui button" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">
+            <i class="angle double left icon"></i>
+            {{ 'pagination.previous'|trans({}, 'SundayUIBundle') }}
+        </a>
+    {% else %}
+        <button class="ui disabled button">
+            <i class="angle double left icon"></i>
+            {{ 'pagination.previous'|trans({}, 'SundayUIBundle') }}
+        </button>
+    {% endif %}
+
+    {% if startPage > 1 %}
+        <a class="ui button" href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
+        {% if startPage == 3 %}
+            <a class="ui button" href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
+        {% elseif startPage != 2 %}
+        <button class="ui disabled button">
+            <span>&hellip;</span>
+        </button>
+        {% endif %}
+    {% endif %}
+
+    {% for page in pagesInRange %}
+        {% if page != current %}
+            <a class="ui button" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+        {% else %}
+            <button class="ui active button">
+                <span>{{ page }}</span>
+            </button>
+        {% endif %}
+
+    {% endfor %}
+
+    {% if pageCount > endPage %}
+        {% if pageCount > (endPage + 1) %}
+            {% if pageCount > (endPage + 2) %}
+                <button class="ui disabled button">
+                    <span>&hellip;</span>
+                </button>
+            {% else %}
+                <a class="ui button" href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">{{ pageCount -1 }}</a>
+            {% endif %}
+        {% endif %}
+        <a class="ui button" href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
+    {% endif %}
+
+    {% if next is defined %}
+        <a class="ui button" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">
+            {{ 'pagination.next'|trans({}, 'SundayUIBundle') }}
+            <i class="angle double right icon"></i>
+        </a>
+    {% else %}
+        <button class="ui disabled button">
+            <span>{{ 'pagination.next'|trans({}, 'SundayUIBundle') }}<i class="angle double right icon"></i></span>
+        </button>
+    {% endif %}
+    </div>
+{% endif %}

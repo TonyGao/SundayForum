@@ -1,0 +1,35 @@
+{% extends "forum/layout.html.twig" %}
+
+{% block wsSundayContent %}
+    <div class="ui vertical segment" style="height: 100%;">
+        <div class="ui grid" style="height: 100%;">
+            <div class="row">
+                {% if error %}
+                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                <div id="login-container" class="six wide column">
+                    <div class="ui piled segment">
+                        <form class="ui form" action="{{ path('security_login') }}" method="post">
+                            <div class="field">
+                                <label for="username">User Name</label>
+                                <input type="text" id="username" name="_username" value="{{ last_username }}">
+                            </div>
+                            <div class="field">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="_password">
+                            </div>
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="remember-me">
+                                    <label>Remeber Password</label>
+                                </div>
+                            </div>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            <button class="ui button" type="submit" id="login-button">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock wsSundayContent %}

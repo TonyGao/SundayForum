@@ -24,6 +24,10 @@ security:
         main:
             lazy: true
             provider: all_users
+            form_login:
+                login_path: login
+                check_path: login
+                enable_csrf: true
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }

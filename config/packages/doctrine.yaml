@@ -25,7 +25,7 @@ doctrine:
       gedmo_loggable:
         type: annotation
         prefix: Gedmo\Loggable\Entity
-        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+        dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Loggable/Entity"
         alias: GedmoLoggable # (optional) it will default to the name set for the mapping
         is_bundle: false
     filters:

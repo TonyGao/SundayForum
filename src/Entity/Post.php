@@ -17,7 +17,7 @@ class Post
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var User
@@ -25,7 +25,7 @@ class Post
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(name="post_author_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    protected $author;
+    private $author;
 
     /**
      * Default is true. If post is must detemine whether or not publish, use it
@@ -34,21 +34,21 @@ class Post
      * 
      * @ORM\Column(type="boolean", nullable=false)
      */
-    protected $published;
+    private $published;
 
     /**
      * @var string
      * 
      * @ORM\Column(type="string", length=255, nullable=false)
      */
-    protected $subject;
+    private $subject;
 
     /**
      * @var json
      * 
      * @ORM\Column(type="json", nullable=false)
      */
-    protected $content;
+    private $content;
 
     /**
      * @var PostCategory
@@ -56,7 +56,7 @@ class Post
      * @ORM\ManyToOne(targetEntity="PostCategory", inversedBy="posts")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    protected $category;
+    private $category;
 
     /**
      * @var Userp[]\ArrayCollection
@@ -67,7 +67,7 @@ class Post
      *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id"), onDelete="CASCADE"}
      * )
      */
-    protected $likeItUsers;
+    private $likeItUsers;
 
     /**
      * @var Comment[]\ArrayCollection
@@ -75,7 +75,7 @@ class Post
      * @ORM\OneToMany(targetEntity="PostComment", mappedBy="targetPost")
      * @ORM\OrderBy({"id" = "DESC"})
      */
-    protected $comments;
+    private $comments;
 
     /**
      * @var PostScript[]|ArrayCollection
@@ -83,7 +83,7 @@ class Post
      * @ORM\OneToMany(targetEntity="PostScript", mappedBy="post")
      * @ORM\OrderBy({"createdAt" = "DESC"})
      */
-    protected $postscript;
+    private $postscript;
 
     /**
      * The first time to publish this post, if admin close and republish this post,
@@ -92,7 +92,7 @@ class Post
      * 
      * @ORM\Column(type="datetime", name="published_at", nullable=true)
      */
-    protected $publishedAt;
+    private $publishedAt;
 
     /**
      * Amount of the post readed by user
@@ -100,19 +100,19 @@ class Post
      * 
      * @ORM\Column(name="count_requests", type="integer", options={"default"=0, "unsigned"=true}, nullable=true)
      */
-    protected $countRequests;
+    private $countRequests;
 
     /**
      * @var bool
      * 
      * @ORM\Column(type="boolean")
      */
-    protected $countComments;
+    private $countComments;
 
     /**
      * TODO: For the future, I will add data scope, this is the field for data isolation
      */
-    protected $organization;
+    private $organization;
 
     public function __construct()
     {

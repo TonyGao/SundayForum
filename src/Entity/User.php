@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -24,6 +25,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $username;
+
+    /**
+     * @ORM\Column(type="string", length=180, unique=true, nullable=true)
+     */
+    private $displayName;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", unique=true, nullable=true)
+     * @Assert\Email()
+     */
+    private $email;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", unique=true, nullable=true)
+     * @Assert\NotBlank()
+     */
+    private $phone;
 
     /**
      * @ORM\Column(type="json")
@@ -118,5 +140,73 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * Get the value of displayName
+     */ 
+    public function getDisplayName(): string
+    {
+        return $this->displayName;
+    }
+
+    /**
+     * Set the value of displayName
+     *
+     * @return  self
+     */ 
+    public function setDisplayName($displayName): self
+    {
+        $this->displayName = $displayName;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of email
+     *
+     * @return  string
+     */ 
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of email
+     *
+     * @param  string  $email
+     *
+     * @return  self
+     */ 
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of phone
+     *
+     * @return  string
+     */ 
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set the value of phone
+     *
+     * @param  string  $phone
+     *
+     * @return  self
+     */ 
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
     }
 }

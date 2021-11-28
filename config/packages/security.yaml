@@ -9,7 +9,6 @@ security:
         app_user_provider:
             entity:
                 class: App\Entity\User
-                property: username
         super_admin_provider:
             memory:
                 users:
@@ -25,9 +24,16 @@ security:
             lazy: true
             provider: all_users
             form_login:
-                login_path: login
-                check_path: login
+                login_path: security_login
+                check_path: security_login
                 enable_csrf: true
+            logout:
+                path: security_logout
+                target: index_page
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800 # 1 week
+                path: /
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }

@@ -1,0 +1,6 @@
+user:
+  username: 用户名
+  email: 邮箱
+  phone: 手机号
+  password: 密码
+  remember: 记住密码

@@ -20,3 +20,4 @@
 ###< phpunit/phpunit ###
 
 /postgres
+/.vscode/

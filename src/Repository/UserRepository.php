@@ -59,6 +59,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $qb = $em->createQueryBuilder();
         $qb->select('u')
             ->from('App\Entity\User', 'u')
+            ->andWhere('u.isVerified = true')
             ->orWhere('u.'.$userIds[0].' = :query');
 
         if (count($userIds) > 1) {

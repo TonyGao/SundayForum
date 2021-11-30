@@ -25,20 +25,22 @@
                             <i class="search link icon"></i>
                         </div>
                     </div>
-                    <div class="ui dropdown item">
-                        {% if app.user %}
-                            <i class="user icon"></i>
-                            {{ app.user.displayName }}
-                            <div class="menu">
-                                <a class="item" href="{{ path('security_logout') }}">Logout</a>
+                    {% if app.user %}
+                            <div class="ui dropdown item">
+                                <i class="user icon"></i>
+                                {{ app.user.displayName }}
+                                <div class="menu">
+                                    <a class="item" href="{{ path('security_logout') }}">Logout</a>
+                                </div>
                             </div>
                         {% else %}
-                            <a href="{{ path('security_login') }}">Login</a>
-                            {# <div class="menu">
-                                <a class="item" href="{{ path('security_register') }}">Register</a>
-                            </div> #}
+                            <div class="item">
+                                <a href="{{ path('security_login') }}">Login</a>
+                            </div>
+                            <div class="item">
+                                <a href="{{ path('security_register') }}">Register</a>
+                            </div>
                         {% endif %}
-                    </div>
                 </div>
 
             </div>

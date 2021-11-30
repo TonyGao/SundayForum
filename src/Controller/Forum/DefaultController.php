@@ -3,7 +3,7 @@
  * (c) Tony Gao <linuxertony@163.com>
  * 
  * For the full copyright and license information, please view the License
- * file that was distributed with this source code.
+ * file that was distribu   ted with this source code.
  */
 
 namespace App\Controller\Forum;

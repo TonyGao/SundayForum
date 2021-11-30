@@ -4,20 +4,31 @@
 	<div class="ui vertical segment" style="height: 100%;">
 		<div class="ui grid" style="height: 100%;">
 			<div class="row">
-				{% if error %}
-					<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-				{% endif %}
 				<div id="login-container" class="six wide column">
 					<div class="ui piled segment">
+						{% if error %}
+							<div class="ui negative message">
+								<div class="header">
+									{{ error.messageKey|trans(error.messageData, 'security') }}
+								</div>
+							</div>
+						{% endif %}
+						{% for message in app.flashes('success') %}
+							<div class="ui negative message">
+								<div class="header">
+									{{ message }}
+								</div>
+							</div>
+						{% endfor %}
 						<form class="ui form" action="{{ path('security_login') }}" method="post">
 							<div class="field">
 								<label for="username">
 									{% if get_parameter('user_identifier')|length > 0 %}
 										{% for id_type in get_parameter('user_identifier') %}
 											{% if loop.index > 1 %}
-											    {{ '/ ' ~ ('user.' ~ id_type)|trans|raw }}
+												{{ '/ ' ~ ('user.' ~ id_type)|trans|raw }}
 											{% else %}
-											    {{ ('user.' ~ id_type)|trans|raw }}
+												{{ ('user.' ~ id_type)|trans|raw }}
 											{% endif %}
 										{% endfor %}
 									{% endif %}

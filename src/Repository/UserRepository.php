@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -59,7 +60,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $qb = $em->createQueryBuilder();
         $qb->select('u')
             ->from('App\Entity\User', 'u')
-            ->andWhere('u.isVerified = true')
             ->orWhere('u.'.$userIds[0].' = :query');
 
         if (count($userIds) > 1) {
@@ -69,9 +69,19 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             }
         }
         
-        return $qb->setParameter('query', $identifier)
+        $user = $qb->setParameter('query', $identifier)
                    ->getQuery()
                    ->getOneOrNullResult();
+
+        if ($user !== null) {
+            if ($user->isVerified()) {
+                return $user;
+            } else {
+                throw new CustomUserMessageAuthenticationException('The email for the user register is not verified');
+            }
+        }
+
+        return $user;
     }
 
     /** @deprecated since Symfony 5.3 */
@@ -79,33 +89,4 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         return $this->loadUserByIdentifier($usernameOrEmail);
     }
-
-    // /**
-    //  * @return User[] Returns an array of User objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?User
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -70,6 +72,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $isVerified = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PostComment::class, mappedBy="author")
+     */
+    private $postComments;
+
+    public function __construct()
+    {
+        $this->postComments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -251,6 +263,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPlainPassword($plainPassword): self
     {
         $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PostComment[]
+     */
+    public function getPostComments(): Collection
+    {
+        return $this->postComments;
+    }
+
+    public function addPostComment(PostComment $postComment): self
+    {
+        if (!$this->postComments->contains($postComment)) {
+            $this->postComments[] = $postComment;
+            $postComment->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removePostComment(PostComment $postComment): self
+    {
+        if ($this->postComments->removeElement($postComment)) {
+            // set the owning side to null (unless already changed)
+            if ($postComment->getAuthor() === $this) {
+                $postComment->setAuthor(null);
+            }
+        }
 
         return $this;
     }

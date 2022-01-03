@@ -1,0 +1,51 @@
+{% extends 'forum/layout.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/post.css') }}">
+{% endblock %}
+
+{% block customJavascript %}
+    {{ encore_entry_script_tags('post') }}
+	<script src="{{ asset('js/post/postTradition.js') }}"></script>
+{% endblock %}
+
+{% block menuContent %}
+	<div class="item">
+	    Create a post
+	</div>
+{% endblock %}
+
+{% block rightMenuContent %}{% endblock %}
+
+{% block wsSundayContent %}
+	<div class="ui vertical segment" style="height: 100%;">
+		<div class="ui grid" style="height: 100%;">
+			<div class="row" style="justify-content: center;">
+				<div id="create-post-container" class="thirteen wide column">
+				    <div class="ui raised segment" id="paper">
+                        <div class="paper title">
+						    <div class="textarea wrapper">
+							    <textarea rows="1" placeholder="请输入标题（最多 100 个字）" style="height: 45px;"></textarea>
+							</div>
+					    </div>
+					    <div class="paper editor">
+					        <div class="editor-body">
+							    <div id="editorjs"></div>
+							</div>
+							<div class="editor-setting">
+							    <div class="publish-setting">发布设置<div>
+								<div class="">
+								    <label class="add-cover">添加封面</label>
+									
+								</div>
+							</div>
+					    </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock wsSundayContent %}

@@ -1,0 +1,27 @@
+{
+    "devDependencies": {
+        "@babel/plugin-transform-runtime": "^7.16.5",
+        "@editorjs/image": "^2.6.2",
+        "@editorjs/link": "^2.3.1",
+        "@symfony/stimulus-bridge": "^2.0.0",
+        "@symfony/webpack-encore": "^1.0.0",
+        "core-js": "^3.0.0",
+        "regenerator-runtime": "^0.13.2",
+        "stimulus": "^2.0.0",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@editorjs/editorjs": "^2.22.2",
+        "@editorjs/header": "^2.6.2",
+        "@editorjs/list": "^1.6.2",
+        "axios": "^0.24.0"
+    }
+}

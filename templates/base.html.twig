@@ -9,14 +9,12 @@
     {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/semantic.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-
+    {% endblock stylesheets %}
+    {% block javascript %}
         <script src="{{ asset('dist/jquery.min.js') }}"></script>
-        {# <script src="{{ asset('bundles/sundayui/js/gsap/TimelineLite.min.js') }}"></script> #}
-        {# <script src="{{ asset('bundles/sundayui/js/gsap/TweenMax.min.js') }}"></script> #}
-        {# <script src="{{ asset('bundles/sundayui/js/animation.js') }}"></script> #}
         <script src="{{ asset('js/custom.js') }}"></script>
         <script src="{{ asset('dist/semantic.min.js') }}"></script>
-    {% endblock %}
+    {% endblock javascript %}
     {% block customJavascript %}{% endblock customJavascript %}
     <link rel="icon" type="image/x-icon" href="{{ asset('img/Sunday.ico') }}" />
 </head>

@@ -40,10 +40,12 @@
         "symfony/twig-bundle": "5.3.*",
         "symfony/validator": "5.3.*",
         "symfony/web-link": "5.3.*",
+        "symfony/webpack-encore-bundle": "^1.13",
         "symfony/yaml": "5.3.*",
         "symfonycasts/verify-email-bundle": "^1.6",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "aws/aws-sdk-php-symfony": "~2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

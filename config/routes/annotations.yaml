@@ -6,7 +6,9 @@ controllers:
         _locale: '%app_locales%'
     defaults:
         _locale: '%locale%'
-
+api_controllers:
+    resource: ../../src/APIController/
+    type: annotation
 kernel:
     resource: ../../src/Kernel.php
     type: annotation

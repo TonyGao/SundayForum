@@ -22,3 +22,27 @@ when@test:
         test: true
         session:
             storage_factory_id: session.storage.factory.mock_file
+
+aws:
+    version: '%env(aws_version)%'
+    region: "%env(aws_region)%"
+    public_bucket: '%env(aws_public_bucket)%'
+    credentials:
+        key: '%env(aws_credentials_key)%'
+        secret: '%env(aws_credentials_secret)%'
+    S3:
+        endpoint: '%env(s3_endpoint)%'
+        use_path_style_endpoint: '%env(bool:s3_use_path_style_endpoint)%'
+    # DynamoDb:
+    #     region: us-west-2
+#     Sqs:
+#         credentials: "@a_service"
+#     CloudSearchDomain:
+#         endpoint: https://search-with-some-subdomain.us-east-1.cloudsearch.amazonaws.com
+
+# services:
+#     a_service:
+#         class: Aws\Credentials\Credentials
+#         arguments:
+#             - a-different-fake-key
+#             - a-different-fake-secret

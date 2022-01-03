@@ -1,0 +1,69 @@
+#paper {
+    margin-top: 20px;
+    padding-top: 0;
+}
+
+.paper.title {
+    height: inherit;
+    padding: 0 35px;
+}
+
+.textarea.wrapper {
+    height: inherit;
+    margin: 16px 0;
+}
+
+.paper.editor {
+    border-top: 1px solid rgba(18,18,18,.08);
+    height: 1300px;
+}
+
+.paper.title textarea {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    height: 44px;
+    min-height: 44px;
+    display: block;
+    width: 100%;
+    border: 0;
+    font-size: 32px;
+    line-height: 1.4;
+    font-weight: 600;
+    font-synthesis: style;
+    overflow: auto;
+    color: #121212;
+    -webkit-box-flex: 1;
+    flex: 1 1;
+    padding: 0;
+    font-family: inherit;
+    background: transparent;
+    resize: none;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    column-count: initial !important;
+    margin: 0em;
+}
+
+.editor-body {
+    margin-top: 16px;
+}
+
+.ce-block__content, .ce-toolbar__content {
+    max-width:calc(100% - 80px) !important;
+}
+
+.cdx-block {
+    max-width: 100% !important;
+}

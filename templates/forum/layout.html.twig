@@ -14,17 +14,26 @@
                 {# {% block menuContent %}
                     {{ topMenu()|raw }}
                 {% endblock menuContent %} #}
-                <a class="item active">Features</a>
-                <a class="item">Testimonials</a>
-                <a class="item">Sign-in</a>
+                {% block menuContent %}
+                    <a class="item active">Features</a>
+                    <a class="item">Testimonials</a>
+                    <a class="item">Sign-in</a>
+                {% endblock menuContent %}
 
                 <div class="right menu">
-                    <div class="item">
-                        <div class="ui icon input">
-                            <input type="text" placeholder="Search..." id="search">
-                            <i class="search link icon"></i>
+                    {% block rightMenuContent %}
+                        <div class="item">
+                            <div class="ui icon input">
+                                <input type="text" placeholder="Search..." id="search">
+                                <i class="search link icon"></i>
+                            </div>
                         </div>
-                    </div>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <div class="item">
+                                <a class="ui inverted button" href="{{ path('post_create') }}">发帖</a>
+                            </div>
+                        {% endif %}
+                    {% endblock rightMenuContent %}
                     {% if app.user %}
                             <div class="ui dropdown item">
                                 <i class="user icon"></i>

@@ -7,6 +7,7 @@ parameters:
   locale: "en"
   app_locales: en|zh_CN
   user_identifier: "%env(getarray:USER_IDENTIFIER)%"
+  aws_public_bucket: "%env(aws_public_bucket)%"
 
 services:
   # default configuration for services in *this* file

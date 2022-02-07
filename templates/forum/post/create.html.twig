@@ -1,20 +1,22 @@
 {% extends 'forum/layout.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 
 {% block stylesheets %}
-    {{ parent() }}
+	{{ parent() }}
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/post.css') }}">
 {% endblock %}
 
 {% block customJavascript %}
-    {{ encore_entry_script_tags('post') }}
+	{{ encore_entry_script_tags('post') }}
 	<script src="{{ asset('js/post/postTradition.js') }}"></script>
+	<script src="{{ asset('dist/fontawesome/js/all.min.js') }}"></script>
 {% endblock %}
 
 {% block menuContent %}
 	<div class="item">
-	    Create a post
+		Create a post
 	</div>
 {% endblock %}
 
@@ -25,25 +27,68 @@
 		<div class="ui grid" style="height: 100%;">
 			<div class="row" style="justify-content: center;">
 				<div id="create-post-container" class="thirteen wide column">
-				    <div class="ui raised segment" id="paper">
-                        <div class="paper title">
-						    <div class="textarea wrapper">
-							    <textarea rows="1" placeholder="请输入标题（最多 100 个字）" style="height: 45px;"></textarea>
+					<div class="ui raised segment" id="paper">
+						<div class="paper title">
+							<div class="textarea wrapper">
+								<textarea rows="1" placeholder="请输入标题（最多 100 个字）" style="height: 45px;" id="title"></textarea>
 							</div>
-					    </div>
-					    <div class="paper editor">
-					        <div class="editor-body">
-							    <div id="editorjs"></div>
+						</div>
+						<div class="paper editor">
+							<div class="editor-body">
+								<div id="editorjs"></div>
 							</div>
+							<div class="separator"></div>
 							<div class="editor-setting">
-							    <div class="publish-setting">发布设置<div>
-								<div class="">
-								    <label class="add-cover">添加封面</label>
-									
+								<div class="publish-setting">发布设置</div>
+								<div class="row add-cover">
+									<label class="left-label">添加封面</label>
+									<div class="post-cover">
+										<div>
+											<label class="uploadCover-wrapper">
+												<input type="file" accept=".jpeg, .jpg, .png" class="uploadCover-input">
+												<div class="uploadTitle">
+													<i class="fas fa-plus"></i>
+													"添加文章封面"
+												</div>
+											</label>
+											<div class="uploaderDesc">图片上传格式支持 JPEG、JPG、PNG</div>
+										</div>
+									</div>
+								</div>
+								<div class="row article-category">
+									<div class="article-category-wrapper">
+										<label class="left-label">文章分类</label>
+										<div class="ui search selection dropdown right-element">
+											<input type="hidden" name="gender">
+											<i class="dropdown icon"></i>
+											<div class="default text">未选择</div>
+											<div class="menu">
+												<div class="item" data-value="1">分类1</div>
+												<div class="item" data-value="2">分类2</div>
+                        <div class="item" data-value="3">分类3</div>
+												<div class="item" data-value="4">分类4</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-					    </div>
-                    </div>
+						</div>
+						<div class="save-bar">
+							<div class="save-bar-content">
+								<div class="up-or-down">
+									<div class="button-label">回到顶部</div>
+									<i class="fas fa-angle-up"></i>
+								</div>
+								<div class="number-words">
+								  正文字数: <span class="numbers">0</span> 字
+								</div>
+								<div class="auto-save-before">
+								  草稿保存于 10 分钟前
+								</div>
+								<button class="tiny ui primary button" id="save">发布</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

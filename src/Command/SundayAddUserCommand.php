@@ -114,7 +114,7 @@ class SundayAddUserCommand extends Command
 
         $event = $stopwatch->stop('add-user-command');
         if ($output->isVerbose()) {
-            $this->io->comment(sprintf('New user database id: %d / Elapsed time: %.2f ms / Consumed memory: %.2f MB', $user->getId(), $event->getDuration(), $event->getMemory() / (1024 ** 2)));  
+            $this->io->comment(sprintf('New user database id: %d / Elapsed time: %.2f ms / Consumed memory: %.2f MB', $user->getId(), $event->getDuration(), $event->getMemory() / (1024 ** 2)));
         }
 
         return Command::SUCCESS;
@@ -143,7 +143,7 @@ class SundayAddUserCommand extends Command
 The <info>%command.name%</info> command creates new users and saves them in the database:
 
     <info>php %command.full_name%</info> <comment>username password email</comment>
-      
+
 By default the command creates regular users. To create administrator users,
 add the <comment>--admin</comment> option:
 
@@ -154,13 +154,13 @@ provide the missing values:
 
     # command will ask you for the email
     <info>php %command.full_name%</info> <comment>username password</comment>
-    
+
     # command will ask you for the email and password
     <info>php %command.full_name%</info> <comment>username</comment>
-        
+
     # command will ask you for all arguments
     <info>php %command.full_name%</info>
-      
+
 HELP;
     }
 }
